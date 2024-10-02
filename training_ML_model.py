@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import joblib
@@ -30,6 +31,12 @@ print(predictions)
 
 #print(score)
 
+tree.export_graphviz(model, out_file='music-recommender.dot', feature_names=['age', 'gender'],
+                     class_names=sorted(y.unique()),
+                     label='all',
+                     rounded=True,
+                     filled=True,
+                     )
 
 
 
